@@ -12,6 +12,8 @@ require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+#
+require_relative '../lib/showoff_client/api/api'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,7 +23,6 @@ module Showoff
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -31,5 +32,14 @@ module Showoff
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    Dotenv::Railtie.load
+
+    ShowoffClient::API.default_config do |config|
+      config[:URL] = ENV['SHOWOFF_URL']
+      config[:CLIENT_SECRET] = ENV['SHOWOFF_CLIENT_SECRET']
+      config[:CLIENT_ID] = ENV['SHOWOFF_CLIENT_ID']
+    end
+
   end
 end

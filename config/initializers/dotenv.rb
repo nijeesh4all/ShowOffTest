@@ -1,0 +1,1 @@
+Dotenv.require_keys("SHOWOFF_URL", "SHOWOFF_CLIENT_ID", "SHOWOFF_CLIENT_SECRET")

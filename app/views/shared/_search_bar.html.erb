@@ -1,11 +1,10 @@
-<form class="col s12" method="get">
-
-  <div class="row center-align search-bar-holder">
-    <div class="input-field col s11">
-      <%= search_field_tag :term, params[:term] %>
-    </div>
-    <div class="col s1 input-field">
-      <button class="btn waves-effect waves-light" type="submit">Search</button>
-    </div>
+<div class="col-12 mt-4 mb-4">
+<%= form_with(method: "get", autocomplete: 'off',class:'form-horizontal', local: true) do %>
+  <div class="input-group">
+    <%= search_field_tag :term, params[:term] , class: 'form-control', placeholder: "Search" %>
+    <span class="input-group-btn ml-2">
+      <%= button_tag("Search", type: "submit", class: "btn btn-primary") %>
+    </span>
   </div>
-</form>
+<% end %>
+</div>

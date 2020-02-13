@@ -1,27 +1,12 @@
-  <!--  <div class="col m2">-->
-  <!--    <div class="card">-->
-  <!--      <div class="card-image">-->
-          <%#= image_tag wid.images[:small] %>
-  <!--        <span class="card-title"><%#= wid.name %></span>-->
-  <!--      </div>-->
-  <!--      <div class="card-content">-->
-  <!--        <p><%# wid.description %></p>-->
-  <!--      </div>-->
-  <!--      <div class="card-action">-->
-  <!--        <a href="#">This is a link</a>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-
-    <div class="col s12 m3">
-      <div class="card">
-        <div class="card-content ">
-          <span class="card-title"><%= widget.name %></span>
-          <p><%= widget.description %></p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
+<div class="col-4 p-2">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= widget.name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= widget.user.first_name %></h6>
+      <p class="card-text"><%= widget.description %></p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
     </div>
+  </div>
+
+</div>

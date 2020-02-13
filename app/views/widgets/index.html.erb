@@ -1,4 +1,8 @@
-<div class="row widgets-index">
+<div class="widgets-index row">
+
   <%= render 'shared/search_bar' %>
-  <%= render partial: "widget", collection: @widgets  %>
+
+  <div class="row">
+      <%= render partial: "widget", collection: @widgets %>
+  </div>
 </div>

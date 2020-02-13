@@ -1,0 +1,5 @@
+<% if @error %>
+ Flash.error("<%= j @message %>")
+<% else %>
+  window.location.reload()
+<% end %>

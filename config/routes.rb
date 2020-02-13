@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   post 'login', to:'auth#create'
   get 'forgot_password', to:'auth#edit'
   post 'forgot_password', to: 'auth#update'
-  delete 'logout', to:'auth#edit'
+  delete 'logout', to:'auth#destroy'
 end

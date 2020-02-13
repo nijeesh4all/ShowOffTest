@@ -21,6 +21,14 @@ class ShowoffClient
       end
     end
 
+    def self.set_token(token)
+      @@config_options[:AUTH_TOKEN] = token
+    end
+
+    def self.revoke_token
+      @@config_options[:AUTH_TOKEN] = nil
+    end
+
     def self.api
       params = {
           client_secret: @@config_options[:CLIENT_SECRET],

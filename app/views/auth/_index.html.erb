@@ -1,0 +1,28 @@
+<%= form_with url: login_path, method: :post do |f|%>
+<div class="modal-content">
+  <h4>Login</h4>
+
+  <div class="row">
+
+      <div class="row modal-form-row">
+        <div class="input-field col s12">
+          <%= text_field_tag :email, params[:email],class: 'validate' %>
+          <%= label_tag :email, "Email", for: 'username' %>
+        </div>
+      </div>
+
+      <div class="row modal-form-row">
+        <div class="input-field col s12">
+          <%= password_field_tag :password,"", class: 'validate' %>
+          <%= label_tag :password, "password", for: 'password' %>
+        </div>
+      </div>
+
+
+  </div>
+</div>
+
+<div class="modal-footer">
+  <%= submit_tag "submit",class: 'modal-action waves-effect waves-green btn-flat' %>
+</div>
+<% end %>

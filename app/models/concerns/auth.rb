@@ -8,6 +8,7 @@ module Auth
     if status == 200
       self.access_token = response["data"]["token"]["access_token"]
       self.refresh_token = response["data"]["token"]["refresh_token"]
+      ShowoffClient::Connection.set_token self.access_token
     end
     self
   end
@@ -19,8 +20,9 @@ module Auth
     })
     puts response
     if status == 200
-      self.access_token = ''
-      self.refresh_token = ''
+      self.access_token = nil
+      self.refresh_token = nil
+      ShowoffClient::Connection.revoke_token
     end
     self
   end
@@ -33,6 +35,7 @@ module Auth
     if status == 200
       self.access_token = response["data"]["token"]["access_token"]
       self.refresh_token = response["data"]["token"]["refresh_token"]
+      ShowoffClient::Connection.set_token self.access_token
     end
     self
   end

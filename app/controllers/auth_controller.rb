@@ -3,13 +3,10 @@ class AuthController < ApplicationController
   before_action :allow_unauthenticated_user_only, only: [:index, :create]
   before_action :authenticate_user, only: [:destroy]
 
-  def index
+  def new
     respond_to do |format|
       format.js
     end
-  end
-
-  def new
   end
 
   def create

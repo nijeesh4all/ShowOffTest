@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :widgets, only: [:index]
 
 
-  get 'login', to:'auth#index'
+  get 'login', to:'auth#new'
   post 'login', to:'auth#create'
   get 'forgot_password', to:'auth#edit'
   post 'forgot_password', to: 'auth#update'

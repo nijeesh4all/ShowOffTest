@@ -14,16 +14,4 @@ class User < ShowoffRecord
     }
   end
 
-  def widgets
-    ShowoffService::Widget.user_all(user_id: id)
-  end
-
-  def widgets_visible
-    ShowoffService::Widget.user_all(user_id: id, visibility: 'visible')
-  end
-
-  def widgets_hidden
-    ShowoffService::Widget.user_all(user_id: id, visibility: 'hidden')
-  end
-
 end

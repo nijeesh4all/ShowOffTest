@@ -12,8 +12,10 @@ require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
-#
-require_relative '../lib/showoff_client/api/api'
+
+#TODO: change this
+require_relative '../lib/showoff_client/connection'
+require_relative '../lib/showoff_client/request'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -35,7 +37,7 @@ module Showoff
 
     Dotenv::Railtie.load
 
-    ShowoffClient::API.default_config do |config|
+    ShowoffClient::Connection.default_config do |config|
       config[:URL] = ENV['SHOWOFF_URL']
       config[:CLIENT_SECRET] = ENV['SHOWOFF_CLIENT_SECRET']
       config[:CLIENT_ID] = ENV['SHOWOFF_CLIENT_ID']

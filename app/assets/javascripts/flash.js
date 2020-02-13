@@ -3,8 +3,8 @@ class Flash{
 }
 
 Flash.error = (message) => {
-    M.toast({
-        html: message,
-        classes: 'red lighten-2'
-    })
+    $.bootstrapPurr(message, {
+        draggable: false,
+        type: 'danger'
+    });
 }

@@ -1,6 +1,7 @@
 class AuthController < ApplicationController
 
-  before_action :allow_unauthenticated_user_only
+  before_action :allow_unauthenticated_user_only, only: [:index, :create]
+  before_action :authenticate_user, only: [:destroy]
 
   def index
     respond_to do |format|
@@ -29,7 +30,7 @@ class AuthController < ApplicationController
   end
 
   def destroy
-    set_session(nil)
+    purge_session
     redirect_to root_path
   end
 

@@ -1,5 +1,4 @@
-var elem = document.getElementById('modal');
-var instances = M.Modal.init(elem);
-elem.innerHTML = "<%= j render 'index' %>"
-instances.open()
+var elem = $('#modal');
+elem.html( "<%= j render 'index' %>")
+elem.modal()
 

@@ -14,4 +14,17 @@ class User < ShowoffRecord
     }
   end
 
+  def auth_attributes
+    {
+        last_name: last_name,
+        first_name: first_name,
+        id: id,
+        email: email,
+        access_token: access_token,
+        refresh_token: refresh_token,
+        expires_in:expires_in,
+        authentication_token_expires_at: authentication_token_expires_at
+    }
+  end
+
 end

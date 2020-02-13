@@ -2,10 +2,10 @@ module ShowoffService
   class Widget < Base
     MAX_LIMIT = 12
 
-    def self.user_all(user_id:'me', visibility:nil)
+    def self.user_all(user_id:'me', search_term:nil)
       url = "users/#{user_id}/widgets"
       params = {}
-      params[:visibility] = visibility if visibility
+      params[:term] = search_term if search_term
       response = ShowoffClient::Request.where(url, params)
       return response unless response[:error]
     end

@@ -16,9 +16,9 @@ class Widget < ShowoffRecord
     }
   end
 
-  def self.all(user:nil, visibility:'', term:'')
-    if user
-      response = ShowoffService::Widget.user_all(user_id: user.id, visibility: visibility )
+  def self.all(user_id:nil, visibility:'', term:'')
+    if user_id
+      response = ShowoffService::Widget.user_all(user_id: user_id, search_term: term )
     else
       response = ShowoffService::Widget.visible(term)
     end

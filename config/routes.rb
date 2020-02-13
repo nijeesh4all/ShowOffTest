@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'widgets#index'
-  resource :widgets, only: [:index]
+  resources :widgets, only: [:index]
 
+  resources :users, only: [] do
+    resources :widgets, only: [:index]
+  end
 
   get 'login', to:'auth#new'
   post 'login', to:'auth#create'
-  get 'forgot_password', to:'auth#edit'
-  post 'forgot_password', to: 'auth#update'
   delete 'logout', to:'auth#destroy'
 end

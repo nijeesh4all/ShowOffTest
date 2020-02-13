@@ -1,6 +1,7 @@
 class WidgetsController < ApplicationController
   def index
-    @widgets = Widget.all(term: search_params)
+    @widgets = Widget.all(user_id: params[:user_id], term: search_params)
+
   end
 
 

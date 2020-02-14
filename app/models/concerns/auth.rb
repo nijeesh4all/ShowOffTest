@@ -20,8 +20,7 @@ module Auth
     })
     puts response
     if status == 200
-      self.access_token = nil
-      self.refresh_token = nil
+      self.access_token = self.refresh_token = nil
       ShowoffClient::Connection.revoke_token
     end
     self

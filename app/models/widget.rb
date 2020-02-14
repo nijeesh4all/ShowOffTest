@@ -1,27 +1,19 @@
 class Widget < ShowoffRecord
-  attr_accessor :name,
-                :description,
-                :kind,
-                :user,
-                :images,
-                :id,
-                :owner
-
+  attr_accessor :name, :description, :kind, :user,
+                :images, :id, :owner
 
   def attributes
     {
-        kind: kind,
-        name: name,
-        description: description
+      kind: kind,
+      name: name,
+      description: description
     }
   end
 
-  def self.all(user_id:nil, visibility:'', term:'')
-    if user_id
-      response = ShowoffService::Widget.user_all(user_id: user_id, search_term: term )
-    else
-      response = ShowoffService::Widget.visible(term)
-    end
+  def self.all(user_id: nil, term: '')
+    response = user_id ?
+                 ShowoffService::Widget.user_all(user_id: user_id, search_term: term) :
+                 ShowoffService::Widget.visible(term)
     widgets = []
     if response
       widgets = response["data"]["widgets"].map { |attrs| Widget.new(attrs) }
@@ -29,5 +21,4 @@ class Widget < ShowoffRecord
     end
     widgets
   end
-
 end

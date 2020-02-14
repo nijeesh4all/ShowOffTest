@@ -29,15 +29,11 @@ class ApplicationController < ActionController::Base
   private
 
   def allow_unauthenticated_user_only
-    if current_user.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.present?
   end
 
   def authenticate_user
-    if !logged_in?
-      redirect_to login_path, notice: "Please Login in to continue"
-    end
+    redirect_to login_path, notice: "Please Login in to continue" unless logged_in?
   end
 
 end

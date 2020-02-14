@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   delete 'logout', to:'auth#destroy'
   get 'forgot_password', to: 'auth#edit'
   put 'forgot_password', to: 'auth#update'
+  get 'check_email', to: 'auth#check_email'
 end

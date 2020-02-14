@@ -3,6 +3,10 @@ class AuthController < ApplicationController
   before_action :allow_unauthenticated_user_only, only: [:new, :create, :edit, :update]
   before_action :authenticate_user, only: [:destroy]
 
+  def check_email
+
+  end
+
   def new
     respond_to do |format|
       format.js
@@ -10,20 +14,31 @@ class AuthController < ApplicationController
   end
 
   def create
-    user = User.new(login_params)
-    user.authenticate
-    if user.access_token
-      set_session(user)
-      @message = "Logged In"
-      @error = false
+    if params[:commit] == 'Login'
+      user = User.new(login_params)
+      user.authenticate
+
+      if user.access_token
+        set_session(user)
+        @message = "Logged In"
+        @error = false
+      else
+        @message = "Check Username & password combination"
+        @error = true
+      end
+
+      partial = 'create'
+
     else
-      @message = "Check Username & password combination"
-      @error = true
+      response = ShowoffService::User.check_email params[:email]
+      partial = 'check_email'
+      @error = response["data"]["available"]
     end
 
     respond_to do |format|
-      format.js
+      format.js { render partial: partial }
     end
+
   end
 
   def edit

@@ -19,5 +19,11 @@ module ShowoffService
       return response unless status != 200
     end
 
+    def self.check_email(email)
+      url = 'users/email'
+      response, status = ShowoffClient::Request.get_json(url, {email: email })
+      return response unless status != 200
+    end
+
   end
 end

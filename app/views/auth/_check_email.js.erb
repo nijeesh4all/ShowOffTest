@@ -1,0 +1,13 @@
+<% if @error %>
+  $('#email_field').find('input').addClass('danger')
+  Flash.error("Email address doesn't exist")
+<% else %>
+$('#email_field').hide()
+
+$('#password_field')
+    .show()
+    .attr({required: true})
+
+$('#login_button').show()
+$('#next_button').hide()
+<% end %>

@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if !logged_in?
-      redirect_to login_path, notice: "Please Login in to continue"
+      redirect_to root_path, notice: "Please Login in to continue"
     end
   end
 

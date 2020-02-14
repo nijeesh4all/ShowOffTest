@@ -13,6 +13,6 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to 'WIDGETS', user_widgets_path(@user.id),class: 'btn btn btn-outline-primary card-link' %>
+    <%= link_to 'WIDGETS', user_widgets_path(current_user_resource? ? 'me' : @user.id),class: 'btn btn btn-outline-primary card-link' %>
   </div>
 </div>

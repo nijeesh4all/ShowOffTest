@@ -4,8 +4,9 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto"></ul>
     <span class="navbar-text">
+       <%= link_to "PROFILE", user_path('me'), class: 'btn btn-primary mr-4' if logged_in? && !profile_path?  %>
        <%= link_to "LOGIN", login_path, remote: true, class:'btn btn-primary'  unless logged_in? %>
-       <%= link_to "LOGOUT", logout_path, method: :delete, class:'btn btn-outline-primary' if logged_in? %>
+       <%= link_to "LOGOUT", logout_path, method: :delete, class:'btn btn-outline-danger' if logged_in? %>
     </span>
   </div>
 </nav>

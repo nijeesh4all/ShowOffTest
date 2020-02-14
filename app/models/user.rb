@@ -8,11 +8,13 @@ class User < ShowoffRecord
 
   def attributes
     {
+        id: id,
         email: email,
         last_name: last_name,
         first_name: first_name,
         image_url: image_url,
-        password: password
+        password: password,
+        date_of_birth: date_of_birth
     }
   end
 
@@ -35,6 +37,15 @@ class User < ShowoffRecord
       self.errors = response["message"]
     else
       set_auth_tokens response["data"]["token"]
+    end
+    self
+  end
+
+
+  def update!(attr)
+    response = ShowoffService::User.update attr
+    if response["code"] != 0
+      self.errors = response["message"]
     end
     self
   end

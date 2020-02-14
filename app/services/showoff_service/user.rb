@@ -2,8 +2,16 @@ module ShowoffService
   class User < Base
 
     def self.create(attributes)
+      attributes.delete(:id) if attributes.has_key?(:id)
       url = 'users'
       response, status = ShowoffClient::Request.post_json(url, {user: attributes})
+      return response
+    end
+
+    def self.update(attributes)
+      attributes.delete(:id) if attributes.has_key?(:id)
+      url = 'users/me'
+      response, status = ShowoffClient::Request.put_json(url, {user: attributes})
       return response
     end
 

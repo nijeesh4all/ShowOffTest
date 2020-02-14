@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'widgets#index'
   resources :widgets, only: [:index]
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:new, :create, :show, :edit, :update] do
     resources :widgets, only: [:index]
   end
 

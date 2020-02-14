@@ -7,6 +7,7 @@ module Auth
     })
     if status == 200
       set_auth_tokens response["data"]["token"]
+      self.attributes = User.find('me').attributes
     end
     self
   end

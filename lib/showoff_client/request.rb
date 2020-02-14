@@ -30,7 +30,7 @@ class ShowoffClient
         throw_corresponding_errors response_data, response.status
         [response_data, response.status]
       rescue JSON::ParserError
-        throw UnprocessableRequest
+        throw ShowoffClient::Error::UnprocessableRequest
       end
 
       def post_json(root_path, query)
@@ -40,7 +40,17 @@ class ShowoffClient
         throw_corresponding_errors response_data, response.status
         [response_data, response.status]
       rescue JSON::ParserError
-        throw UnprocessableRequest
+        throw ShowoffClient::Error::UnprocessableRequest
+      end
+
+      def put_json(root_path, query)
+        path = query.empty? ? root_path : "#{root_path}"
+        response = api.put(path,query.to_json)
+        response_data = JSON.parse(response.body)
+        throw_corresponding_errors response_data, response.status
+        [response_data, response.status]
+      rescue JSON::ParserError
+        throw ShowoffClient::Error::UnprocessableRequest
       end
 
       private
@@ -52,9 +62,9 @@ class ShowoffClient
       def throw_corresponding_errors(response, status)
         case response[:code]
         when 10
-          raise UnauthorisedAccess
+          raise ShowoffClient::Error::UnauthorisedAccess
         when 3
-          raise UnprocessableRequest
+          raise ShowoffClient::Error::UnprocessableRequest
         end
       end
 

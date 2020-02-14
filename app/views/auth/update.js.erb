@@ -1,0 +1,6 @@
+<% if @error %>
+Flash.error("<%= j @message %>")
+<% else %>
+  Flash.success("<%= j @message %>")
+  $('#modal').modal('hide')
+<% end %>

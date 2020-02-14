@@ -14,14 +14,16 @@
         <div class="form-group">
           <div class="clearfix">
             <%= label_tag :password, "password", for: 'password' %>
-            <a href="#" class="pull-right text-muted"><small>Forgot?</small></a>
+            <%= link_to forgot_password_path , class: 'pull-right text-muted', remote: true  do %>
+              <small>Forgot?</small>
+            <% end %>
           </div>
           <%= password_field_tag :password,"", class: 'form-control', required: true %>
         </div>
       </div>
       <div class="modal-footer">
         <%= submit_tag "submit",class: 'btn btn-primary btn-block' %>
-        <%= link_to "Register", root_path, class: 'btn btn-outline-primary btn-block' %>
+        <%= link_to "Register", new_user_path, remote: true, class: 'btn btn-outline-primary btn-block' %>
       </div>
     <% end %>
   </div>

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get 'login', to:'auth#new'
   post 'login', to:'auth#create'
   delete 'logout', to:'auth#destroy'
+  get 'forgot_password', to: 'auth#edit'
+  put 'forgot_password', to: 'auth#update'
 end

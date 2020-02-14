@@ -1,6 +1,5 @@
 module ShowoffService
   class Widget < Base
-    MAX_LIMIT = 12
 
     def self.user_all(user_id:'me', search_term:nil)
       url = "users/#{user_id}/widgets"

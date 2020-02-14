@@ -1,10 +1,11 @@
-<div class="modal-dialog modal-login">
+<div class="modal-dialog  modal-dialog-centered modal-login">
   <div class="modal-content">
     <%= form_with url: login_path, method: :post do |f|%>
       <div class="modal-header">
         <h4 class="modal-title">Login</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       </div>
+
       <div class="modal-body">
         <div class="form-group">
           <%= label_tag :email, "Email", for: 'username' %>
@@ -13,13 +14,16 @@
         <div class="form-group">
           <div class="clearfix">
             <%= label_tag :password, "password", for: 'password' %>
-            <a href="#" class="pull-right text-muted"><small>Forgot?</small></a>
+            <%= link_to forgot_password_path , class: 'pull-right text-muted', remote: true  do %>
+              <small>Forgot?</small>
+            <% end %>
           </div>
           <%= password_field_tag :password,"", class: 'form-control', required: true %>
         </div>
       </div>
       <div class="modal-footer">
         <%= submit_tag "submit",class: 'btn btn-primary btn-block' %>
+        <%= link_to "Register", new_user_path, remote: true, class: 'btn btn-outline-primary btn-block' %>
       </div>
     <% end %>
   </div>

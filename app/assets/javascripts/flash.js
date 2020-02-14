@@ -8,3 +8,11 @@ Flash.error = (message) => {
         type: 'danger'
     });
 }
+
+Flash.success = (message) => {
+    $.bootstrapPurr(message, {
+        draggable: false,
+        type: 'success'
+    });
+}
+

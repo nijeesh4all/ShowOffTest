@@ -1,6 +1,6 @@
 class AuthController < ApplicationController
 
-  before_action :allow_unauthenticated_user_only, only: [:index, :create]
+  before_action :allow_unauthenticated_user_only, only: [:new, :create, :edit, :update]
   before_action :authenticate_user, only: [:destroy]
 
   def new
@@ -24,6 +24,16 @@ class AuthController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+    response = ShowoffService::User.reset_password(params[:email])
+    @message = response["message"]
+    @error = response["code"] != 0
   end
 
   def destroy

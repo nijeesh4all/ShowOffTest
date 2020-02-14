@@ -26,17 +26,36 @@ class ShowoffClient
         query_string = query.map { |k, v| "#{k}=#{v}" }.join("&")
         path = query.empty? ? root_path : "#{root_path}?#{query_string}"
         response = api.get(path)
-        [JSON.parse(response.body), response.status]
+        response_data = JSON.parse(response.body)
+        throw_corresponding_errors response_data, response.status
+        [response_data, response.status]
+      rescue JSON::ParserError
+        throw UnprocessableRequest
       end
 
       def post_json(root_path, query)
         path = query.empty? ? root_path : "#{root_path}"
         response = api.post(path,query.to_json)
-        [JSON.parse(response.body), response.status]
+        response_data = JSON.parse(response.body)
+        throw_corresponding_errors response_data, response.status
+        [response_data, response.status]
+      rescue JSON::ParserError
+        throw UnprocessableRequest
       end
+
+      private
 
       def api
         ShowoffClient::Connection.api
+      end
+
+      def throw_corresponding_errors(response, status)
+        case response[:code]
+        when 10
+          raise UnauthorisedAccess
+        when 3
+          raise UnprocessableRequest
+        end
       end
 
     end

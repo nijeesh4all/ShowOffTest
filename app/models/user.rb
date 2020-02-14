@@ -1,16 +1,17 @@
 class User < ShowoffRecord
   include Auth
+
   attr_accessor :id,:email,:name,:images,:first_name,:last_name,:date_of_birth,
-                :password,:password_confirmation,
+                :password,:password_confirmation,:image_url,
                 :access_token, :refresh_token,:expires_in,:authentication_token_expires_at,
                 :current_password,:new_password,:active
   def attributes
     {
-        id: id,
         email: email,
-        images: images,
         last_name: last_name,
-        first_name: first_name
+        first_name: first_name,
+        image_url: image_url,
+        password: password
     }
   end
 
@@ -27,8 +28,18 @@ class User < ShowoffRecord
     }
   end
 
+  def create
+    response = ShowoffService::User.create attributes
+  end
+
   def full_name
     "#{first_name}  #{last_name}"
+  end
+
+  def self.find(id)
+    response = ShowoffService::User.find(id)
+    raise RecordNotFound if response.nil?
+    User.new response["data"]["user"]
   end
 
 end

@@ -1,4 +1,8 @@
 class ShowoffRecord
+  extend ActiveModel::Naming
+  include ActiveModel::Conversion
+
+  class RecordNotFound < StandardError; end
 
   attr_accessor :errors
 
@@ -10,6 +14,10 @@ class ShowoffRecord
 
   def persisted?
     id.present?
+  end
+
+  def create
+
   end
 
 end

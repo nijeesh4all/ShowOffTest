@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    redirect_to login_path, notice: "Please Login in to continue" unless logged_in?
+    redirect_to root_path, notice: "Please Login in to continue" unless logged_in?
   end
 
 end

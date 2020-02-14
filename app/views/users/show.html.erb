@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row user-row">
+      <div class="col-md-6 img">
+        <%= image_tag @user.images["small_url"] %>
+      </div>
+      <div class="col-md-6 details">
+        <blockquote>
+          <h5><%= @user.full_name %></h5>
+          <small><cite title="Source Title"> </cite></small>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'WIDGETS', user_widgets_path(@user.id),class: 'btn btn btn-outline-primary card-link' %>
+  </div>
+</div>

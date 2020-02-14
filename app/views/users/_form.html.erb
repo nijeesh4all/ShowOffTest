@@ -1,0 +1,48 @@
+<div class="modal-dialog  modal-dialog-centered modal-login">
+  <div class="modal-content">
+    <%= form_for @user  do |f|%>
+      <div class="modal-header">
+        <h4 class="modal-title">Register</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="form-group">
+          <%= f.label :first_name, "First Name" %>
+          <%= f.text_field :first_name, class:"form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name, "Second Name" %>
+          <%= f.text_field :last_name, class:"form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, "Email" %>
+          <%= f.email_field :email, class:"form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, "password" %>
+          <%= f.password_field :password, class: 'form-control', required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Confirm Password" %>
+          <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :image_url, "Profile  URL" %>
+          <%= f.url_field :image_url, class: 'form-control', required: true %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag "Register",class: 'btn btn-primary btn-block' %>
+        <%= link_to "Login", login_path, remote: true, class: 'btn btn-outline-primary btn-block' %>
+      </div>
+    <% end %>
+  </div>
+</div>

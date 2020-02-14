@@ -2,8 +2,6 @@ require 'faraday'
 require 'json'
 
 class ShowoffClient
-  class ConfigurationOptionsInvalid < StandardError;
-  end
   class Connection
     @@config_options = {
         CLIENT_SECRET: '',

@@ -15,7 +15,7 @@ class ShowoffClient
     def self.default_config
       yield(@@config_options)
       unless @@config_options[:CLIENT_ID] || @@config_options[:CLIENT_SECRET] || @@config_options[:URL]
-        raise ConfigurationOptionsInvalid
+        raise ShowoffClient::Error::ConfigurationOptionsInvalid
       end
     end
 

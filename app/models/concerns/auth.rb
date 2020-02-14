@@ -6,9 +6,7 @@ module Auth
         "password": password
     })
     if status == 200
-      self.access_token = response["data"]["token"]["access_token"]
-      self.refresh_token = response["data"]["token"]["refresh_token"]
-      ShowoffClient::Connection.set_token self.access_token
+      set_auth_tokens response["data"]["token"]
     end
     self
   end
@@ -32,10 +30,14 @@ module Auth
         "refresh_token": refresh_token,
     })
     if status == 200
-      self.access_token = response["data"]["token"]["access_token"]
-      self.refresh_token = response["data"]["token"]["refresh_token"]
-      ShowoffClient::Connection.set_token self.access_token
+      set_auth_tokens response["data"]["token"]
     end
     self
+  end
+
+  def set_auth_tokens token
+    self.access_token = token["access_token"]
+    self.refresh_token = token["refresh_token"]
+    ShowoffClient::Connection.set_token self.access_token
   end
 end

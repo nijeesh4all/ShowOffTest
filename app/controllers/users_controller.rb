@@ -12,7 +12,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.create
+    @user.create!
+    @error = !@user.valid?
+    @message = @error ? @user.errors : "User Successfuly created"
+    set_session @user unless @error
   end
 
   def edit

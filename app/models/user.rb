@@ -1,10 +1,11 @@
 class User < ShowoffRecord
   include Auth
 
-  attr_accessor :id,:email,:name,:images,:first_name,:last_name,:date_of_birth,
-                :password,:password_confirmation,:image_url,
-                :access_token, :refresh_token,:expires_in,:authentication_token_expires_at,
-                :current_password,:new_password,:active
+  attr_accessor :id, :email, :name, :images, :first_name, :last_name, :date_of_birth,
+                :password, :password_confirmation, :image_url,
+                :access_token, :refresh_token, :expires_in, :authentication_token_expires_at,
+                :current_password, :new_password, :active
+
   def attributes
     {
         email: email,
@@ -23,13 +24,19 @@ class User < ShowoffRecord
         email: email,
         access_token: access_token,
         refresh_token: refresh_token,
-        expires_in:expires_in,
+        expires_in: expires_in,
         authentication_token_expires_at: authentication_token_expires_at
     }
   end
 
-  def create
+  def create!
     response = ShowoffService::User.create attributes
+    if response["code"] != 0
+      self.errors = response["message"]
+    else
+      set_auth_tokens response["data"]["token"]
+    end
+    self
   end
 
   def full_name

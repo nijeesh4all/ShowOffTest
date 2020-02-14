@@ -16,6 +16,7 @@ require "action_cable/engine"
 #TODO: change this
 require_relative '../lib/showoff_client/connection'
 require_relative '../lib/showoff_client/request'
+require_relative '../lib/showoff_client/error'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

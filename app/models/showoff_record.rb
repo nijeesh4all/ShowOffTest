@@ -16,8 +16,8 @@ class ShowoffRecord
     id.present?
   end
 
-  def create
-
+  def valid?
+    errors.nil?
   end
 
 end

@@ -1,1 +1,6 @@
-<%= @user.attributes %>
+<% if @error %>
+  Flash.error("<%= j @message %>")
+<% else %>
+Flash.success("<%= j @message %>")
+  window.location.reload()
+<% end %>

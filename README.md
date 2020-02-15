@@ -46,8 +46,11 @@ instructions on installing docker : https://docs.docker.com/machine/install-mach
 once its installed make sure you have added the `.env` file as instructed above. docker-compose make use of it to set the environment variables
  
 ```
-# build the docker 
+# build all the necessary containers.
 $ docker-compose build
+
+# start the application
+$ docker-compose up
 ```
 
 ### Run Manually
@@ -55,7 +58,6 @@ This application is made using Ruby on Rails. So first you need to install ruby 
 
 you can follow this tutorial for setting up ruby with rvm https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/install_language_runtime.html
  
-
 next install all the required gems via bundler
 ```
 $ bundle install --without production
@@ -66,5 +68,5 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDUyMTAyNSwtMTc4ODk1OTEwM119
+eyJoaXN0b3J5IjpbMTY2NzgwMzgzLC0xNzg4OTU5MTAzXX0=
 -->

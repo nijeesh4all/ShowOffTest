@@ -1,5 +1,17 @@
+@import "variables";
+
 ol.breadcrumb{
   li{
     margin: auto 20px;
   }
+}
+
+::-moz-selection { /* Code for Firefox */
+  background: $secondary_yellow;
+  color: black;
+}
+
+::selection {
+  background: $secondary_yellow;
+  color: black;
 }

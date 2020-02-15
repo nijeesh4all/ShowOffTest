@@ -1,10 +1,11 @@
 @import "bootstrap/functions";
 @import "bootstrap/variables";
+@import "variables";
 
-$link-color: #6b5b95;
+$link-color: $primary_violet;
 
 $theme-colors: (
-        primary: #6b5b95,
-        secondary: #feb236,
-        danger: #d64161,
+        primary: $primary_violet,
+        secondary: $secondary_yellow,
+        danger: $danger_red,
 );

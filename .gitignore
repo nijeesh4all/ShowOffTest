@@ -27,3 +27,7 @@
 .idea/
 
 .env
+
+
+/coverage.data
+/coverage/

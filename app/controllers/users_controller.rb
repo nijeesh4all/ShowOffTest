@@ -33,11 +33,12 @@ class UsersController < ApplicationController
   end
 
   def update_passwords
-    @user.update_password! params[:password], params[:new_password]
+    @user.update_password! password_params[:password], password_params[:new_password]
     if @user.valid?
       redirect_to user_path 'me'
     else
-      render :edit_passwords, notice: @user.errors
+      flash.now[:notice] =  @user.errors
+      render :edit_passwords
     end
   end
 
@@ -53,6 +54,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id] || params[:user_id])
+  end
+
+  def password_params
+    params.require(:user)
   end
 
 end

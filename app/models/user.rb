@@ -52,8 +52,8 @@ class User < ShowoffRecord
 
   def update_password!(current_password, new_password)
     response = ShowoffService::User.update_password current_password, new_password
-    if response["code"] != 0
-      self.errors = response["message"]
+    if response.nil? || ( response.present? && response["code"] != 0 )
+      self.errors = "Invalid Password, please enter again"
     else
       set_auth_tokens response["data"]["token"]
     end

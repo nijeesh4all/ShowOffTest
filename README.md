@@ -11,6 +11,9 @@ This is an demo application built for the second round of interview for http://s
 |--|--|
 | **Rails version** | **5.2.4** |
 
+![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/run%20rspec%20tests/badge.svg)
+
+
 ## Getting started
 ### Clone
 To get started with the app, clone the repo 

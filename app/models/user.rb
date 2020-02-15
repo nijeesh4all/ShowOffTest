@@ -36,13 +36,13 @@ class User < ShowoffRecord
     }
   end
 
-  def create!
+  def create!(authenticate_after: true)
     return self unless valid?(:create_user)
     response = ShowoffService::User.create attributes
     if response["code"] != 0
       self.errors.add :base, response["message"]
     else
-      set_auth_tokens response["data"]["token"]
+      set_auth_tokens response["data"]["token"] if authenticate_after
     end
     self
   end

@@ -3,10 +3,6 @@ class AuthController < ApplicationController
   before_action :allow_unauthenticated_user_only, only: [:new, :create, :edit, :update]
   before_action :authenticate_user, only: [:destroy]
 
-  def check_email
-
-  end
-
   def new
     respond_to do |format|
       format.js

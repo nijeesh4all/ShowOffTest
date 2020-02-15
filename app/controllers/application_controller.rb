@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from 'ShowoffClient::Error::UnauthorisedAccess' do |exception|
-    redirect_to root_path
+    authenticate_user
   end
 
   rescue_from 'ShowoffClient::Error::UnprocessableRequest' do |exception|

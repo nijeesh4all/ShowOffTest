@@ -7,6 +7,7 @@ class WidgetsController < ApplicationController
     if params[:user_id]
       add_breadcrumb "PROFILE", user_path(params[:user_id])
     end
+    raise ShowoffClient::Error::UnauthorisedAccess if params[:user_id] && !logged_in?
     @widgets = Widget.all(user_id: params[:user_id], term: search_params)
   end
 

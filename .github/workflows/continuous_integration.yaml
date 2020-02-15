@@ -1,9 +1,11 @@
-name: run rspec tests
+name: rspec tests
 
 on: 
     push: 
         branches:
             - development
+    pull-request:
+        branches: 
             - master
 
 jobs:

@@ -58,3 +58,4 @@ gem 'dotenv-rails'
 gem 'faraday'
 gem 'jquery-rails'
 gem "breadcrumbs_on_rails"
+gem 'bootstrap', '~> 4.4.1'

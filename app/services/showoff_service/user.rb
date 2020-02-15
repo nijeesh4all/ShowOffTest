@@ -24,7 +24,7 @@ module ShowoffService
     def self.reset_password(email)
       url = "users/reset_password"
       response, status = ShowoffClient::Request.post_json(url, {user: {email: email}})
-      return response unless status != 200
+      return response
     end
 
     def self.check_email(email)

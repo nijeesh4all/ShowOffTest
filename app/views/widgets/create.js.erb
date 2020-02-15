@@ -1,6 +1,4 @@
-<% if @error %>
-Flash.error("<%= j @message %>")
-<% else %>
-Flash.success("<%= j @message %>")
+<%= make_js_flashes @error, @messages %>
+<% unless @error %>
 $('#modal').modal('hide')
 <% end %>

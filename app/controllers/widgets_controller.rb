@@ -18,22 +18,22 @@ class WidgetsController < ApplicationController
   def create
     @widget = Widget.new widget_params
     @widget.create!
-    @error = !@widget.valid?
-    @message = @widget.errors || "Widget Successfully created"
+    @error = @widget.errors.any?
+    @messages = @error ? @widget.errors.full_messages : ["Widget Successfully created"]
   end
 
   def update
     @widget.update! widget_params
-    @error = !@widget.valid?
-    @message = @widget.errors || "Widget Successfully updated"
+    @error = @widget.errors.any?
+    @messages = @error ?  @widget.errors.full_messages : ["Widget Successfully updated"]
   end
 
   def destroy
     @widget.destroy
-    if @widget.valid?
+    if @widget.errors.any?
       flash[:success] = "Widget deleted Successfully "
     else
-      flash[:notice] = @widget.errors
+      flash[:notice] = @widget.errors.full_messages
     end
     redirect_back(fallback_location: root_path)
   end

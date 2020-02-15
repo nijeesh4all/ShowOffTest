@@ -14,8 +14,12 @@ class ApplicationController < ActionController::Base
     @user = User.new
   end
 
-  def set_session(user = current_user)
-    session[:user] = user.auth_attributes
+  def set_session(user = current_user, merge: false)
+    if !merge || session[:user].nil?
+      session[:user] = user.auth_attributes
+    else
+      session[:user].merge! user.auth_attributes.compact
+    end
   end
 
   def purge_session

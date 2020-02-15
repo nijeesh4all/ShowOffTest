@@ -1,13 +1,21 @@
 <div class="d-none">
-  <% if flash[:notice] %>
-    <div class="alert danger">
-      <%= flash[:notice] %>
-    </div>
+
+  <% if flash[:notice]  %>
+    <% flash[:notice] = [ flash[:notice]] unless flash[:notice].is_a? Array %>
+    <% flash[:notice].each do |message|  %>
+      <div class="alert danger">
+        <%= message %>
+      </div>
+    <% end %>
   <% end %>
 
-  <% if flash[:success] %>
-    <div class="alert success">
-      <%= flash[:success] %>
-    </div>
+  <% if flash[:success]  %>
+    <% flash[:success] = [ flash[:success]] unless flash[:success].is_a? Array %>
+    <% flash[:success].each do |message|  %>
+      <div class="alert success">
+        <%= message %>
+      </div>
+    <% end %>
   <% end %>
+
 </div>

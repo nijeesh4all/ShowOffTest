@@ -10,4 +10,13 @@ module ApplicationHelper
     controller_name == 'users' and action_name == 'show'
   end
 
+  def make_js_flashes(error, messages = [])
+    messages = [messages] unless messages.is_a? Array
+    fun_name = error ? 'error' : 'success'
+    messages
+        .map { |message| "Flash.#{fun_name}('#{j message}')" }
+        .join(';')
+        .html_safe
+  end
+
 end

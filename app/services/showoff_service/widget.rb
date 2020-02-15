@@ -19,6 +19,7 @@ module ShowoffService
 
     def self.create(attributes)
       attributes.delete(:id) if attributes.has_key?(:id)
+      attributes.delete(:owner) if attributes.has_key?(:owner)
       url = 'widgets'
       response, status = ShowoffClient::Request.post_json(url, {widget: attributes})
       return response

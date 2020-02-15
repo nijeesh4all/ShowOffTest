@@ -2,6 +2,9 @@ class Widget < ShowoffRecord
   attr_accessor :name, :description, :kind, :user,
                 :images, :id, :owner
 
+  validates_presence_of :name, :description, :kind
+  validates_inclusion_of :kind , in: %w(visible hidden), message: "value must me either visible / hidden"
+
   def attributes
     {
         kind: kind,
@@ -26,7 +29,7 @@ class Widget < ShowoffRecord
   def update!(attr)
     response = ShowoffService::Widget.update(id, attr)
     if response["code"] != 0
-      self.errors = response["message"]
+      self.errors.add :base, response["message"]
     end
     self
   end
@@ -34,7 +37,7 @@ class Widget < ShowoffRecord
   def destroy
     response = ShowoffService::Widget.destroy(id)
     if response["code"] != 0
-      self.errors = response["message"]
+      self.errors.add :base, response["message"]
     end
     self
   end
@@ -42,7 +45,7 @@ class Widget < ShowoffRecord
   def create!
     response = ShowoffService::Widget.create attributes
     if response["code"] != 0
-      self.errors = response["message"]
+      self.errors.add :base, response["message"]
     end
     self
   end

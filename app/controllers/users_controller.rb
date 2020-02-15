@@ -12,8 +12,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.create!
-    @error = !@user.valid?
-    @message = @error ? @user.errors : "User Successfully created"
+    @error = @user.errors.any?
+    @messages = @error ? @user.errors.full_messages : ["User Successfully created"]
     set_session @user unless @error
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update! user_update_params
-    set_session @user
+    set_session @user, merge: true
     redirect_to user_path('me')
   end
 
@@ -32,12 +32,14 @@ class UsersController < ApplicationController
   end
 
   def update_passwords
-    @user.update_password! password_params[:password], password_params[:new_password]
-    if @user.valid?
-      redirect_to user_path 'me'
-    else
-      flash.now[:notice] =  @user.errors
+    @user.attributes = password_params
+    @user.update_password!
+    if @user.errors.any?
+      flash.now[:notice] =  @user.errors.full_messages
       render :edit_passwords
+    else
+      flash[:success] = "Password successfully updated"
+      redirect_to user_path 'me'
     end
   end
 
@@ -51,12 +53,16 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :image_url, :date_of_birth)
   end
 
+  def update_password_params
+
+  end
+
   def set_user
     @user = User.find(params[:id] || params[:user_id])
   end
 
   def password_params
-    params.require(:user)
+    params.require(:user).permit(:password, :password_confirmation, :current_password)
   end
 
 end

@@ -45,9 +45,10 @@ instructions on installing docker : https://docs.docker.com/machine/install-mach
 
 once its installed make sure you have added the `.env` file as instructed above. docker-compose make use of it to set the environment variables
  
- ```
- 
- ```
+```
+# build the docker 
+$ docker-compose build
+```
 
 ### Run Manually
 This application is made using Ruby on Rails. So first you need to install ruby version **2.6.3** to get started.
@@ -65,6 +66,5 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTQ5NDQ3MzQsLTE3ODg5NTkxMDNdfQ
-==
+eyJoaXN0b3J5IjpbLTIxNDUyMTAyNSwtMTc4ODk1OTEwM119
 -->

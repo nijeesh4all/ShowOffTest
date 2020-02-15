@@ -66,6 +66,11 @@ class ShowoffClient
         when 3
           raise ShowoffClient::Error::UnprocessableRequest
         end
+
+        case status
+        when 401
+          raise ShowoffClient::Error::UnauthorisedAccess
+        end
       end
 
     end

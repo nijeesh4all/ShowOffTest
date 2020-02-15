@@ -14,10 +14,15 @@
   </div>
   <div class="card-footer">
     <div class="row justify-content-between">
-      <div class="col-2">
+      <div class="col-2 d-flex">
         <%= link_to "LIST #{ current_user_resource? ? "MY" : "USER" } WIDGETS",
                     user_widgets_path(current_user_resource? ? 'me' : @user.id),
                     class: 'btn btn btn-outline-primary card-link' %>
+
+        <%= link_to "CREATE WIDGETS",
+                    new_user_widget_path(current_user_resource? ? 'me' : @user.id),
+                    class: 'btn btn btn-primary card-link', remote: true if current_user_resource? %>
+
       </div>
       <div class="col-4 d-flex">
         <% if current_user_resource? %>

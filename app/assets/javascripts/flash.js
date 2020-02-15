@@ -2,7 +2,6 @@ Flash = {
     notification: (message, type) => {
         Toastify({
             text: message,
-            backgroundColor: "indianred",
             className: type,
             position: 'center'
         }).showToast();

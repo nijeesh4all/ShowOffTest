@@ -6,7 +6,7 @@ module ShowoffService
       params = {}
       params[:term] = search_term if search_term
       response = ShowoffClient::Request.where(url, params)
-      return response unless response[:error]
+      return response
     end
 
     def self.visible(search_term=nil)
@@ -14,9 +14,15 @@ module ShowoffService
       params={}
       params[:term] = search_term if search_term
       response = ShowoffClient::Request.where(url, params)
-      return response unless response[:error]
+      return response
     end
 
+    def self.create(attributes)
+      attributes.delete(:id) if attributes.has_key?(:id)
+      url = 'widgets'
+      response, status = ShowoffClient::Request.post_json(url, {widget: attributes})
+      return response
+    end
 
   end
 end

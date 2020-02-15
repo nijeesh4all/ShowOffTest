@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update,:edit_passwords, :update_passwords ]
 
   def show
-    
   end
 
   def new

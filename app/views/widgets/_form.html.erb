@@ -1,0 +1,44 @@
+<div class="modal-dialog  modal-dialog-centered modal-login">
+  <div class="modal-content">
+    <%= form_for @widget, url: user_widgets_path, remote: true do |f| %>
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <% if @widget.persisted? %>
+            EDIT
+          <% else %>
+            CREATE
+          <% end %>
+
+          WIDGET
+        </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="form-group">
+          <%= f.label :name, "Name" %>
+          <%= f.text_field :name, class: "form-control", required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :description, "Description" %>
+          <%= f.text_area :description, class: "form-control", required: true %>
+        </div>
+
+        <div class="checkbox switcher visibility-toggle">
+          <span>Visibility</span>
+          <%= f.label :kind do %>
+            <%= f.check_box :kind, {class: 'primary'}, "visible", "hidden" %>
+            <span><small></small></span>
+            <small></small>
+          <% end %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag "SAVE", class: 'btn btn-primary btn-block' %>
+      </div>
+    <% end %>
+  </div>
+</div>

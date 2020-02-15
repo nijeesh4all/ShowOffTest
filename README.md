@@ -41,7 +41,9 @@ You can either use docker to develop this or you can manually install ruby and r
 ### Run using docker
 
 first you have to install docker. 
+instructions on installing docker : https://docs.docker.com/machine/install-machine/
 
+once its installed make sure you have added the `.env` file as instructed above. docker 
 
 ### Manualy run
 This application is made using Ruby on Rails. So first you need to install ruby version **2.6.3** to get started.
@@ -59,5 +61,6 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYzMjIyMzU0LC0xNzg4OTU5MTAzXX0=
+eyJoaXN0b3J5IjpbLTEwMDAyMDUwMjIsLTE3ODg5NTkxMDNdfQ
+==
 -->

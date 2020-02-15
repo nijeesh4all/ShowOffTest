@@ -11,10 +11,6 @@ This is an demo application built for the second round of interview for http://s
 |--|--|
 | **Rails version** | **5.2.4** |
 
-## License
-
-All source code in this repo is available jointly under the MIT License
-
 ## Getting started
 ### Clone
 To get started with the app, clone the repo 
@@ -67,6 +63,10 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 $ rails server
 ```
+
+## License
+
+All source code in this repo is available jointly under the MIT License
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2NzgwMzgzLC0xNzg4OTU5MTAzXX0=
+eyJoaXN0b3J5IjpbMTAzNTA4NDMzLC0xNzg4OTU5MTAzXX0=
 -->

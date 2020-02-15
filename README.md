@@ -31,7 +31,8 @@ This application make use of these Environment variables for working.
  2. `SHOWOFF_CLIENT_ID`
  3. `SHOWOFF_CLIENT_SECRET`
  
- For developme
+ For development you can use the `.env.example` file for reference.
+ copy the `.env.example` file to `.env` add your variables in there
 
 You can either use docker to develop this or you can manually install ruby and run the app in the traditional way. 
 
@@ -51,5 +52,6 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQyOTc5MzA1LC0xNzg4OTU5MTAzXX0=
+eyJoaXN0b3J5IjpbLTEwNzU3MDY1NDYsLTE3ODg5NTkxMDNdfQ
+==
 -->

@@ -43,9 +43,13 @@ You can either use docker to develop this or you can manually install ruby and r
 first you have to install docker. 
 instructions on installing docker : https://docs.docker.com/machine/install-machine/
 
-once its installed make sure you have added the `.env` file as instructed above. docker 
+once its installed make sure you have added the `.env` file as instructed above. docker-compose make use of it to set the environment variables
+ 
+ ```
+ 
+ ```
 
-### Manualy run
+### Run Manually
 This application is made using Ruby on Rails. So first you need to install ruby version **2.6.3** to get started.
 
 you can follow this tutorial for setting up ruby with rvm https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/install_language_runtime.html
@@ -61,6 +65,6 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDAyMDUwMjIsLTE3ODg5NTkxMDNdfQ
+eyJoaXN0b3J5IjpbLTE1OTQ5NDQ3MzQsLTE3ODg5NTkxMDNdfQ
 ==
 -->

@@ -1,8 +1,27 @@
 require 'rails_helper'
-
 RSpec.describe "Auths", type: :request do
-  it "redirects user back if not logged it" do
-    get user_widgets_path('me')
-    expect(response).to redirect_to root_path
+  context "non logged user" do
+    it "redirects user back if not logged it" do
+      delete logout_path
+      expect(response).to redirect_to root_path
+    end
+
+    it "gives 200 response and render template" do
+      get login_path, xhr: true
+      expect(response).to render_template :new
+      expect(response).to be_success
+
+      post login_path, params: { email: Faker::Internet.email, commit: 'check_email' } ,xhr: true
+      expect(response).to be_success
+      expect(response).to render_template(:partial => '_check_email')
+
+      get forgot_password_path, xhr: true
+      expect(response).to be_success
+      expect(response).to render_template(:edit)
+    end
+  end
+
+  context "logged in user" do
+
   end
 end

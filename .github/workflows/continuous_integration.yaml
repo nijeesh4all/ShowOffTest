@@ -4,7 +4,8 @@ on:
     push: 
         branches:
             - development
-    pull-request:
+            - master
+    pull_request:
         branches: 
             - master
 

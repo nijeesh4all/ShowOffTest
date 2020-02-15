@@ -25,8 +25,13 @@ $ cd widget_gallery
 ```
 ### Set Environment Variables
 
-This application make 
+This application make use of these Environment variables for working.
 
+ 1. `SHOWOFF_URL`
+ 2. `SHOWOFF_CLIENT_ID`
+ 3. `SHOWOFF_CLIENT_SECRET`
+ 
+ For developme
 
 You can either use docker to develop this or you can manually install ruby and run the app in the traditional way. 
 
@@ -46,5 +51,5 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg1MTQ4ODQ1MywtMTc4ODk1OTEwM119
+eyJoaXN0b3J5IjpbNTQyOTc5MzA1LC0xNzg4OTU5MTAzXX0=
 -->

@@ -66,7 +66,8 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 $ rails server
 ```
-
+## TESTS
+This project uses `rspec` as the testing 
 ## License
 
 MIT License
@@ -91,6 +92,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzNzM2MDc0MywyMTA0ODYyNzc2LDEwMz
+eyJoaXN0b3J5IjpbLTIzNTk3OTE2OSwyMTA0ODYyNzc2LDEwMz
 UwODQzMywtMTc4ODk1OTEwM119
 -->

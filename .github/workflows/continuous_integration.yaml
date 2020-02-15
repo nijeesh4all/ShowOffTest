@@ -1,0 +1,34 @@
+name: run rspec tests
+
+on: 
+    push: 
+        branches:
+            - development
+            - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.3
+
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
+
+      - name: Bundle install
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+
+      - name: Run RSpec
+        run: COVERAGE=true bundle exec rspec  --require rails_helper
+        env:
+            RAILS_ENV: test
+            SHOWOFF_URL:   ${{ secrets.SHOWOFF_URL }}
+            SHOWOFF_CLIENT_ID:  ${{ secrets.SHOWOFF_CLIENT_ID }}
+            SHOWOFF_CLIENT_SECRET:  ${{ secrets.SHOWOFF_CLIENT_SECRET }}

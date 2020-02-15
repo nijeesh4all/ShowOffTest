@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update,:edit_passwords, :update_passwords ]
 
   def show
     
@@ -27,6 +27,19 @@ class UsersController < ApplicationController
     redirect_to user_path('me')
   end
 
+  def edit_passwords
+
+  end
+
+  def update_passwords
+    @user.update_password! params[:password], params[:new_password]
+    if @user.valid?
+      redirect_to user_path 'me'
+    else
+      render :edit_passwords, notice: @user.errors
+    end
+  end
+
   private
 
   def user_params
@@ -38,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:id] || params[:user_id])
   end
 
 end

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'widgets#index'
   resources :widgets, only: [:index]
 
-  resources :users, only: [:new, :create, :show, :edit, :update] do
+  resources :users, only: [:new, :create, :show, :edit, :update, :edit_passwords, :update_passwords] do
+    get 'password', to: 'users#edit_passwords'
+    post 'password', to: 'users#update_passwords'
     resources :widgets, only: [:index]
   end
 

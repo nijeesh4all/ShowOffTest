@@ -33,5 +33,12 @@ module ShowoffService
       return response unless status != 200
     end
 
+    def self.update_password(current_password, new_password)
+      url = 'users/me/password'
+      params = {current_password: current_password,new_password: new_password  }
+      response, status = ShowoffClient::Request.post_json(url, user: params)
+      return response unless status != 200
+    end
+
   end
 end

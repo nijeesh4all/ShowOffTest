@@ -18,7 +18,7 @@
           <%= f.text_field :last_name, class: "form-control", required: true %>
         </div>
 
-        <% unless @user.persisted? %>
+
           <div class="form-group">
             <%= f.label :email, "Email" %>
             <%= f.email_field :email, class: "form-control", required: true %>
@@ -33,26 +33,13 @@
             <%= f.label :password_confirmation, "Confirm Password" %>
             <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
           </div>
-        <% end %>
+
 
         <div class="form-group">
           <%= f.label :image_url, "Profile  URL" %>
           <%= f.url_field :image_url, class: 'form-control', required: true %>
         </div>
 
-        <% if @user.persisted? %>
-
-          <div class="form-group">
-            <div class="row">
-              <div class="col-12 "><%= f.label :date_of_birth, "DOB" %></div>
-              <div class="col-12 d-flex">
-                <%= f.date_select :date_of_birth, {end_year: Date.today.year, start_year: Date.today.year - 100},
-                                  class: 'form-control inline', required: true %>
-              </div>
-            </div>
-          </div>
-
-        <% end %>
 
       </div>
       <div class="modal-footer">

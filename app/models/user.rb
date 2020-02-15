@@ -50,8 +50,18 @@ class User < ShowoffRecord
     self
   end
 
+  def update_password!(current_password, new_password)
+    response = ShowoffService::User.update_password current_password, new_password
+    if response["code"] != 0
+      self.errors = response["message"]
+    else
+      set_auth_tokens response["data"]["token"]
+    end
+    self
+  end
+
   def full_name
-    "#{first_name}  #{last_name}"
+    name || "#{first_name}  #{last_name}"
   end
 
   def self.find(id)

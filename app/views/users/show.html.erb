@@ -13,6 +13,18 @@
     </div>
   </div>
   <div class="card-footer">
-    <%= link_to 'WIDGETS', user_widgets_path(current_user_resource? ? 'me' : @user.id),class: 'btn btn btn-outline-primary card-link' %>
+    <div class="row justify-content-between">
+      <div class="col-2">
+        <%= link_to "LIST #{ current_user_resource? ? "MY" : "USER" } WIDGETS",
+                    user_widgets_path(current_user_resource? ? 'me' : @user.id),
+                    class: 'btn btn btn-outline-primary card-link' %>
+      </div>
+      <div class="col-4 d-flex">
+        <% if current_user_resource? %>
+          <%= link_to "CHANGE PASSWORD", user_password_path('me'), class: 'btn btn btn-outline-primary card-link' %>
+          <%= link_to "EDIT PROFILE", edit_user_path, class: 'btn btn btn-outline-primary card-link' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

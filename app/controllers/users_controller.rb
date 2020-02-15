@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    add_breadcrumb "PROFILE", user_path('me')
   end
 
   def update
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def edit_passwords
-
+    add_breadcrumb "PROFILE", user_path('me')
   end
 
   def update_passwords

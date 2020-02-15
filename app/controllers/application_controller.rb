@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?
 
+  add_breadcrumb "HOME", :root_path
+
   def current_user
     @current_user ||= (User.new(session[:user]) if session[:user].present?)
   end

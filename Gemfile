@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails'
 gem 'faraday'
 gem 'jquery-rails'
+gem "breadcrumbs_on_rails"

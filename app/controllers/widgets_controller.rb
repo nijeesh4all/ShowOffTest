@@ -1,6 +1,7 @@
 class WidgetsController < ApplicationController
 
   before_action :authenticate_user, except: [:index]
+  before_action :set_widget, only: [:destroy, :update]
 
   def index
     if params[:user_id]
@@ -22,10 +23,19 @@ class WidgetsController < ApplicationController
   end
 
   def update
-    @widget = Widget.new(id: params[:id])
     @widget.update! widget_params
     @error = !@widget.valid?
     @message = @widget.errors || "Widget Successfully updated"
+  end
+
+  def destroy
+    @widget.destroy
+    if @widget.valid?
+      flash[:success] = "Widget deleted Successfully "
+    else
+      flash[:notice] = @widget.errors
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -39,7 +49,7 @@ class WidgetsController < ApplicationController
   end
 
   def set_widget
-    @widget = Widget.find()
+    @widget = Widget.new(id: params[:id])
   end
 
 end

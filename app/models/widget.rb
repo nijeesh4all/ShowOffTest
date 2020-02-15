@@ -31,6 +31,13 @@ class Widget < ShowoffRecord
     self
   end
 
+  def destroy
+    response = ShowoffService::Widget.destroy(id)
+    if response["code"] != 0
+      self.errors = response["message"]
+    end
+    self
+  end
 
   def create!
     response = ShowoffService::Widget.create attributes

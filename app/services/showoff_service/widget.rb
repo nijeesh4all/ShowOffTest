@@ -31,5 +31,11 @@ module ShowoffService
       return response
     end
 
+    def self.destroy(widget_id)
+      url = "widgets/#{widget_id}"
+      response, status = ShowoffClient::Request.delete_json(url)
+      return response
+    end
+
   end
 end

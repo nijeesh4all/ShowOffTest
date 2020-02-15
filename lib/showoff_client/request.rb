@@ -7,16 +7,6 @@ class ShowoffClient
         status == 200 ? response : errors(response)
       end
 
-      def get(id)
-        response, status = get_json(id)
-        status == 200 ? response : errors(response)
-      end
-
-      def post(resource_path, query)
-        response, status = post_json(resource_path, query)
-        status >= 299 ? response : errors(response)
-      end
-
       def errors(response)
         error = {error: true, errors: {status: response["status"], message: response["message"]}}
         response.merge(error)
@@ -46,6 +36,16 @@ class ShowoffClient
       def put_json(root_path, query)
         path = query.empty? ? root_path : "#{root_path}"
         response = api.put(path,query.to_json)
+        response_data = JSON.parse(response.body)
+        throw_corresponding_errors response_data, response.status
+        [response_data, response.status]
+      rescue JSON::ParserError
+        throw ShowoffClient::Error::UnprocessableRequest
+      end
+
+      def delete_json(root_path)
+        path = root_path
+        response = api.delete(path)
         response_data = JSON.parse(response.body)
         throw_corresponding_errors response_data, response.status
         [response_data, response.status]

@@ -26,7 +26,6 @@ class WidgetsController < ApplicationController
     @widget.update! widget_params
     @error = !@widget.valid?
     @message = @widget.errors || "Widget Successfully updated"
-    render :create
   end
 
   private

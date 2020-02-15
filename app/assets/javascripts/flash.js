@@ -8,11 +8,15 @@ Flash = {
     },
 
     error: function (message) {
-        this.notification(message, 'error')
+        this.notification(message, 'danger')
     },
 
     success: function (message) {
-        this.notification(message, 'error')
+        this.notification(message, 'success')
+    },
+
+    warning: function (message) {
+        this.notification(message, 'info')
     }
 }
 
@@ -21,7 +25,7 @@ $(document).on("turbolinks:load", function () {
         Flash.error(elem.innerHTML)
     })
 
-    $('.alert.sucess').each((index, elem) => {
+    $('.alert.success').each((index, elem) => {
         Flash.success(elem.innerHTML)
     })
 })

@@ -81,11 +81,11 @@ body {
 
 .toastify {
   &.info {
-    background-color: lightgoldenrodyellow;
+    background-color: lightgoldenrodyellow !important;
   }
 
   &.danger {
-    background-color: indianred;
+    background-color: indianred !important;
   }
 
   min-width: 500px;

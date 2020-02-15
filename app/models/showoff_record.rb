@@ -1,6 +1,7 @@
 class ShowoffRecord
   extend ActiveModel::Naming
   include ActiveModel::Conversion
+  include ActiveModel::Validations
 
   class RecordNotFound < StandardError; end
 
@@ -8,6 +9,7 @@ class ShowoffRecord
 
   def initialize(attributes={})
     set_attributes attributes
+    self.errors = ActiveModel::Errors.new(self )
   end
 
   def attributes=(attributes={})
@@ -20,9 +22,6 @@ class ShowoffRecord
     id.present?
   end
 
-  def valid?
-    errors.nil?
-  end
 
   private
 

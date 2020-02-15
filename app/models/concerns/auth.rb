@@ -39,11 +39,11 @@ module Auth
     self.access_token = token["access_token"]
     self.refresh_token = token["refresh_token"]
     self.expires_in = token["expires_in"]
-    self.authentication_token_expires_at = self.created_at + self.expires_in
+    self.authentication_token_expires_at = token["created_at"] + self.expires_in
     ShowoffClient::Connection.set_token self.access_token
   end
 
   def token_expired?
-    self.authentication_token_expires_at < DateTime.no.to_i
+    self.authentication_token_expires_at < DateTime.now.to_i
   end
 end

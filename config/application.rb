@@ -9,6 +9,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
+require 'active_model/validations'
 
 #TODO: change this
 require_relative '../lib/showoff_client/connection'

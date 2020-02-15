@@ -72,10 +72,8 @@ This project uses `rspec` as the testing library
 to run the test if you are using docker use this command
 
 ```
-$ docker-compose run -e "RAILS_ENV=test" app rake test
+$ docker-compose run -e "RAILS_ENV=test" web rake spec
 ```
-
-if you are using 
 
 ## License
 
@@ -101,6 +99,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0MTI2MDUyMSwyMTA0ODYyNzc2LDEwMz
+eyJoaXN0b3J5IjpbMTE2Nzc0MjUzOSwyMTA0ODYyNzc2LDEwMz
 UwODQzMywtMTc4ODk1OTEwM119
 -->

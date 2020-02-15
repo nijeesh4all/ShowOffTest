@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update, :edit_passwords, :update_passwords] do
     get 'password', to: 'users#edit_passwords'
     patch 'password', to: 'users#update_passwords'
-    resources :widgets, only: [:index, :new, :create]
+    resources :widgets, only: [:index, :new, :create, :update]
   end
 
   get 'login', to:'auth#new'

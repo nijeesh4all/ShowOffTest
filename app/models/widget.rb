@@ -4,10 +4,10 @@ class Widget < ShowoffRecord
 
   def attributes
     {
-        id: id,
         kind: kind,
         name: name,
-        description: description
+        description: description,
+        owner: owner
     }
   end
 
@@ -21,6 +21,14 @@ class Widget < ShowoffRecord
       widgets.map { |widget| widget.user = User.new(widget.user) }
     end
     widgets
+  end
+
+  def update!(attr)
+    response = ShowoffService::Widget.update(id, attr)
+    if response["code"] != 0
+      self.errors = response["message"]
+    end
+    self
   end
 
 

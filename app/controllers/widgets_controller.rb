@@ -21,6 +21,14 @@ class WidgetsController < ApplicationController
     @message = @widget.errors || "Widget Successfully created"
   end
 
+  def update
+    @widget = Widget.new(id: params[:id])
+    @widget.update! widget_params
+    @error = !@widget.valid?
+    @message = @widget.errors || "Widget Successfully updated"
+    render :create
+  end
+
   private
 
   def search_params
@@ -29,6 +37,10 @@ class WidgetsController < ApplicationController
 
   def widget_params
     params.require(:widget).permit(:name, :description, :kind)
+  end
+
+  def set_widget
+    @widget = Widget.find()
   end
 
 end

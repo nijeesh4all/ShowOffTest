@@ -24,5 +24,12 @@ module ShowoffService
       return response
     end
 
+    def self.update(widget_id, attributes)
+      attributes.delete(:id) if attributes.has_key?(:id)
+      url = "widgets/#{widget_id}"
+      response, status = ShowoffClient::Request.put_json(url, {widget: attributes})
+      return response
+    end
+
   end
 end

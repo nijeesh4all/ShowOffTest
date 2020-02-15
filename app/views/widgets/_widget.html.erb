@@ -5,14 +5,19 @@
       <h6 class="card-subtitle mb-2 text-muted">
         Author:
         <% if logged_in? %>
-          <%= link_to widget.user.full_name, user_path(widget.user.id)%>
+          <%= link_to widget.user.full_name, user_path(widget.user.id) %>
         <% else %>
           <%= widget.user.full_name %>
         <% end %>
       </h6>
       <p class="card-text"><%= widget.description %></p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+
+      <p class="card-text"><small class="text-muted">
+        <strong>Visibility: </strong> <%= widget.kind %>
+      </small></p>
+    </div>
+    <div class="card-footer">
+
     </div>
   </div>
 

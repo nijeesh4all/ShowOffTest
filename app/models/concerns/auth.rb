@@ -12,8 +12,7 @@ module Auth
     self
   end
 
-  #TODO: fix
-  def revoke
+  def revoke_token
     response, status = ShowoffClient::Request.post_json('/oauth/revoke',{
         "token": self.access_token,
     })
@@ -25,7 +24,7 @@ module Auth
     self
   end
 
-  def refresh
+  def refresh_token
     response, status = ShowoffClient::Request.post_json('/oauth/token',{
         "grant_type": "refresh_token",
         "refresh_token": refresh_token,
@@ -39,6 +38,12 @@ module Auth
   def set_auth_tokens token
     self.access_token = token["access_token"]
     self.refresh_token = token["refresh_token"]
+    self.expires_in = token["expires_in"]
+    self.authentication_token_expires_at = self.created_at + self.expires_in
     ShowoffClient::Connection.set_token self.access_token
+  end
+
+  def token_expired?
+    self.authentication_token_expires_at < DateTime.no.to_i
   end
 end

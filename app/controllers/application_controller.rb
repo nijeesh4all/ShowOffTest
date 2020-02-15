@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   add_breadcrumb "HOME", :root_path
 
+  before_action :refresh_token_if_expired
+
   def current_user
     @current_user ||= (User.new(session[:user]) if session[:user].present?)
   end
@@ -20,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def purge_session
-    current_user.revoke if logged_in?
+    current_user.revoke_token if logged_in?
     session.clear
   end
 
@@ -36,6 +38,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     redirect_to root_path, notice: "Please Login in to continue" unless logged_in?
+  end
+
+  def refresh_token_if_expired
+    current_user.refresh_token if logged_in? && current_user.token_expired?
   end
 
 end

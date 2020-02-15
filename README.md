@@ -1,24 +1,41 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Widget Gallery App : Ruby on Rails
 
-Things you may want to cover:
+check out the demo here : https://warm-river-71480.herokuapp.com/
 
-* Ruby version
+This is an demo application built for the second round of interview for http://showoff.ie/ 
 
-* System dependencies
+## Info
 
-* Configuration
+|Ruby version  | 2.6.3 |
+|--|--|
+| **Rails version** | **5.2.4** |
 
-* Database creation
+## License
 
-* Database initialization
+All source code in this repo is available jointly under the MIT License
 
-* How to run the test suite
+## Getting started
+This application is made using Ruby on Rails. So first you need to install ruby version **2.6.3** to get started.
 
-* Services (job queues, cache servers, search engines, etc.)
+you can follow this tutorial for setting up ruby with rvm https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ownserver/nginx/oss/install_language_runtime.html
+ 
+ 
+To get started with the app, clone the repo 
+```
+$ cd /path/to/repos
+$ git clone https://github.com/nijeesh4all/ShowOffTest widget_gallery
+$ cd widget_gallery
+```
+next install all the required gems via bundler
+```
+$ bundle install --without production
+```
+If the test suite passes, you'll be ready to run the app in a local server:
 
-* Deployment instructions
-
-* ...
+```
+$ rails server
+```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE3ODg5NTkxMDNdfQ==
+-->

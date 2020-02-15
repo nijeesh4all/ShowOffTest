@@ -16,13 +16,20 @@ This is an demo application built for the second round of interview for http://s
 All source code in this repo is available jointly under the MIT License
 
 ## Getting started
+### Clone
 To get started with the app, clone the repo 
 ```
 $ cd /path/to/repos
 $ git clone https://github.com/nijeesh4all/ShowOffTest widget_gallery
 $ cd widget_gallery
 ```
-You can either use docker to develop this or you can manual
+### Set Environment Variables
+
+This application make 
+
+
+You can either use docker to develop this or you can manually install ruby and run the app in the traditional way. 
+
 
 This application is made using Ruby on Rails. So first you need to install ruby version **2.6.3** to get started.
 
@@ -39,5 +46,5 @@ If the test suite passes, you'll be ready to run the app in a local server:
 $ rails server
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMDA5OTY3OCwtMTc4ODk1OTEwM119
+eyJoaXN0b3J5IjpbLTg1MTQ4ODQ1MywtMTc4ODk1OTEwM119
 -->

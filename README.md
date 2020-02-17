@@ -1,6 +1,5 @@
 
 # Widget Gallery App : Ruby on Rails
-![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/rspec%20tests/badge.svg)
 ![ruby-2.6.5](https://img.shields.io/badge/Ruby-v2.6.5-green.svg) 
 ![rails-5.2.4](https://img.shields.io/badge/Rails-v5.2.4-brightgreen.svg) 
 ![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/run%20rspec%20tests/badge.svg)

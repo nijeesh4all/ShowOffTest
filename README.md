@@ -1,5 +1,6 @@
 
 # Widget Gallery App : Ruby on Rails
+![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/rspec%20tests/badge.svg)
 
 check out the demo here : https://warm-river-71480.herokuapp.com/
 
@@ -10,8 +11,6 @@ This is an demo application built for the second round of interview for http://s
 |Ruby version  | 2.6.3 |
 |--|--|
 | **Rails version** | **5.2.4** |
-
-![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/run%20rspec%20tests/badge.svg)
 
 
 ## Getting started

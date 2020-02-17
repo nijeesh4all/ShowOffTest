@@ -1,17 +1,18 @@
 
 # Widget Gallery App : Ruby on Rails
 
+![ruby-2.6.5](https://img.shields.io/badge/Ruby-v2.6.5-green.svg) 
+![rails-5.2.4](https://img.shields.io/badge/Rails-v5.2.4-brightgreen.svg) 
+![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/run%20rspec%20tests/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b6d8755c5a32fcad1073/maintainability)](https://codeclimate.com/github/nijeesh4all/ShowOffTest/maintainability)
+
 check out the demo here : https://warm-river-71480.herokuapp.com/
 
 This is an demo application built for the second round of interview for http://showoff.ie/ 
 
-## Info
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?&env[SHOWOFF_URL]=http%3A%2F%2Feample.com%2Fapi%2Fv1?env[SHOWOFF_CLIENT_ID]=test?evn[SHOWOFF_CLIENT_SECRET]=test)
 
-|Ruby version  | 2.6.3 |
-|--|--|
-| **Rails version** | **5.2.4** |
-
-![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/run%20rspec%20tests/badge.svg)
+>please change the default environment variables by going to app dashboard settings
 
 
 ## Getting started

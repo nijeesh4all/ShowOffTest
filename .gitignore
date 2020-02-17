@@ -26,4 +26,6 @@
 
 .idea/
 
+
 .env
+coverage/

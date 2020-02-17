@@ -10,11 +10,6 @@ check out the demo here : https://warm-river-71480.herokuapp.com/
 
 This is an demo application built for the second round of interview for http://showoff.ie/ 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?&env[SHOWOFF_URL]=http%3A%2F%2Feample.com%2Fapi%2Fv1?env[SHOWOFF_CLIENT_ID]=test?evn[SHOWOFF_CLIENT_SECRET]=test)
-
->please change the default environment variables by going to app dashboard settings
-
-
 ## Getting started
 ### Clone
 To get started with the app, clone the repo 

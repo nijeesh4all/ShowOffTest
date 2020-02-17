@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def update
     @user.update! user_update_params
     set_session @user, merge: true
+    flash[:success] = "Successfully updated your profile"
     redirect_to user_path('me')
   end
 

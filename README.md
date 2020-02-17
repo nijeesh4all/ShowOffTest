@@ -1,6 +1,6 @@
 
 # Widget Gallery App : Ruby on Rails
-
+![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/rspec%20tests/badge.svg)
 ![ruby-2.6.5](https://img.shields.io/badge/Ruby-v2.6.5-green.svg) 
 ![rails-5.2.4](https://img.shields.io/badge/Rails-v5.2.4-brightgreen.svg) 
 ![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/run%20rspec%20tests/badge.svg)
@@ -62,6 +62,14 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 $ rails server
 ```
+## TESTS
+This project uses `rspec` as the testing library
+
+to run the test if you are using docker use this command
+
+```
+$ docker-compose run -e "RAILS_ENV=test" web rake spec
+```
 
 ## License
 
@@ -87,6 +95,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwNDg2Mjc3NiwxMDM1MDg0MzMsLTE3OD
-g5NTkxMDNdfQ==
+eyJoaXN0b3J5IjpbMTE2Nzc0MjUzOSwyMTA0ODYyNzc2LDEwMz
+UwODQzMywtMTc4ODk1OTEwM119
 -->

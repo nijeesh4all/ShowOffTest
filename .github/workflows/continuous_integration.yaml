@@ -3,11 +3,8 @@ name: rspec tests
 on: 
     push: 
         branches:
-            - development
             - master
-    pull_request:
-        branches: 
-            - master
+          
 
 jobs:
   build:

@@ -22,6 +22,16 @@ RSpec.describe "Auths", type: :request do
   end
 
   context "logged in user" do
+    before(:each) do
+      @user = build(:user)
+      @user.create!
+    end
+
+
+    it "logs user out" do
+      delete logout_path
+      expect(response).to redirect_to root_path
+    end
 
   end
 end

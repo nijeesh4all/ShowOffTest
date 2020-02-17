@@ -1,17 +1,14 @@
 
 # Widget Gallery App : Ruby on Rails
 ![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/rspec%20tests/badge.svg)
+![ruby-2.6.5](https://img.shields.io/badge/Ruby-v2.6.5-green.svg) 
+![rails-5.2.4](https://img.shields.io/badge/Rails-v5.2.4-brightgreen.svg) 
+![rspec tests](https://github.com/nijeesh4all/ShowOffTest/workflows/run%20rspec%20tests/badge.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b6d8755c5a32fcad1073/maintainability)](https://codeclimate.com/github/nijeesh4all/ShowOffTest/maintainability)
 
 check out the demo here : https://warm-river-71480.herokuapp.com/
 
 This is an demo application built for the second round of interview for http://showoff.ie/ 
-
-## Info
-
-|Ruby version  | 2.6.3 |
-|--|--|
-| **Rails version** | **5.2.4** |
-
 
 ## Getting started
 ### Clone
